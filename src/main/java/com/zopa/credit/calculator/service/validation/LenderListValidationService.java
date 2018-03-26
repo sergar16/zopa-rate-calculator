@@ -12,12 +12,19 @@ import java.util.function.Predicate;
 @Service
 public class LenderListValidationService {
 
-    private static  <T> Predicate<T> distinctByKey(Function<? super T, ?> keyExtractor) {
+    private static <T> Predicate<T> distinctByKey(Function<? super T, ?> keyExtractor) {
         Set<Object> seen = ConcurrentHashMap.newKeySet();
         return t -> seen.add(keyExtractor.apply(t));
     }
 
     public boolean validateAllLendersAreUniqueByName(List<Lender> lenders) {
         return lenders.stream().allMatch(distinctByKey(Lender::getName));
+    }
+
+    public boolean validateIsEnoughMoneyOnMarket(List<Lender> lenders, long amountToBorrow) {
+        return lenders
+                .stream()
+                .mapToInt(Lender::getAmount)
+                .sum() >= amountToBorrow;
     }
 }

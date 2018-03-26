@@ -3,6 +3,7 @@ package com.zopa.credit.calculator.service;
 import com.zopa.credit.calculator.dao.LenderDao;
 import com.zopa.credit.calculator.dao.entity.LenderEntity;
 import com.zopa.credit.calculator.exception.InvalidLendersDataException;
+import com.zopa.credit.calculator.exception.NoEnoughMoneyOnMarketException;
 import com.zopa.credit.calculator.mapper.LenderMapper;
 import com.zopa.credit.calculator.model.Lender;
 import com.zopa.credit.calculator.model.Loan;
@@ -52,6 +53,8 @@ public class FlowService {
         List<Lender> lenders = lenderMapper.mapList(lenderEntities);
 
         if (!lenderListValidationService.validateAllLendersAreUniqueByName(lenders)) throw new InvalidLendersDataException("not uniq");
+
+        if (!lenderListValidationService.validateIsEnoughMoneyOnMarket(lenders,requestedAmount)) throw new NoEnoughMoneyOnMarketException("not enough money on market");
 
         List<Loan> loans = planBuilder.buildPlan(lenders, requestedAmount);
 
