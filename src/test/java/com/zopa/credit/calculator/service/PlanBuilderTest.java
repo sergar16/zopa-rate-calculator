@@ -45,7 +45,7 @@ public class PlanBuilderTest {
         marketData.add(new Lender("Angela", BigDecimal.valueOf(0.071), 60));
 
         //when
-        List<Loan> result = planBuilder.buildPlan(marketData, 1000, 36);
+        List<Loan> result = planBuilder.buildPlan(marketData, 1000);
 
         //expected
         List<Loan> expected = Arrays.asList(new Loan(jane, 480), new Loan(fred, 520));
@@ -75,7 +75,7 @@ public class PlanBuilderTest {
         marketData.add(mary);
 
         //when
-        List<Loan> result = planBuilder.buildPlan(marketData, 1000, 36);
+        List<Loan> result = planBuilder.buildPlan(marketData, 1000);
 
         //expected
         List<Loan> expected = Arrays.asList(new Loan(bob, 640),

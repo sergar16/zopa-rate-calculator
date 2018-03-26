@@ -2,16 +2,10 @@ package com.zopa.credit.calculator.view;
 
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
-import org.springframework.util.ObjectUtils;
 
 import java.math.BigDecimal;
 import java.math.MathContext;
 import java.math.RoundingMode;
-import java.util.Arrays;
-import java.util.List;
-import java.util.Map;
-import java.util.function.Consumer;
-import java.util.function.Predicate;
 
 @Service
 public class CommandLineResultRenderer {
@@ -29,7 +23,7 @@ public class CommandLineResultRenderer {
         BigDecimal creditPaymentString = round(calculationResult.getCreditPayment());
         BigDecimal monthlyPaymentString = round(calculationResult.getMonthlyPayment());
 
-        ObjectUtils()
+//        ObjectUtils()
         return "Requested amount : £" + requestedAmountString
                 + "\nRate: " + rateString + "%"
                 + "\nMonthly repayment: £" + creditPaymentString

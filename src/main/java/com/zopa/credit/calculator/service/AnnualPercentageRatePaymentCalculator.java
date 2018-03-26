@@ -27,7 +27,7 @@ public class AnnualPercentageRatePaymentCalculator {
         return sum;
     }
 
-    private BigDecimal calculateMonthPayment(BigDecimal total, BigDecimal rate, int monthCount, int currentMonth) {
+    private strictfp BigDecimal calculateMonthPayment(BigDecimal total, BigDecimal rate, int monthCount, int currentMonth) {
         BigDecimal totalMainBodyPerMonth = total.divide(valueOf(monthCount), mc);
         BigDecimal ratePerMonth = rate.divide(MONTH_IN_YEAR, mc);
 

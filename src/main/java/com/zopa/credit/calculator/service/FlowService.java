@@ -2,7 +2,7 @@ package com.zopa.credit.calculator.service;
 
 import com.zopa.credit.calculator.dao.LenderDao;
 import com.zopa.credit.calculator.dao.entity.LenderEntity;
-import com.zopa.credit.calculator.exception.InvalidLendersDataExceptionRate;
+import com.zopa.credit.calculator.exception.InvalidLendersDataException;
 import com.zopa.credit.calculator.mapper.LenderMapper;
 import com.zopa.credit.calculator.model.Lender;
 import com.zopa.credit.calculator.model.Loan;
@@ -51,9 +51,9 @@ public class FlowService {
 
         List<Lender> lenders = lenderMapper.mapList(lenderEntities);
 
-        if (!lenderListValidationService.validateAllLendersAreUniqueByName(lenders)) throw new InvalidLendersDataExceptionRate("not uniq");
+        if (!lenderListValidationService.validateAllLendersAreUniqueByName(lenders)) throw new InvalidLendersDataException("not uniq");
 
-        List<Loan> loans = planBuilder.buildPlan(lenders, requestedAmount, monthCount);
+        List<Loan> loans = planBuilder.buildPlan(lenders, requestedAmount);
 
         //todo: get bigd out from here change it for int
         BigDecimal calculatedCreditPayment = creditPaymentCalculator.calculateCreditPayment(loans, monthCount);

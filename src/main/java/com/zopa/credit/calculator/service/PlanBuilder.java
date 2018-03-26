@@ -19,7 +19,7 @@ public class PlanBuilder {
     };
 
 
-    public List<Loan> buildPlan(List<Lender> marketData, final int amount, int monthCount) {
+    public List<Loan> buildPlan(List<Lender> marketData, final int amount) {
         List<Loan> plan = new ArrayList<>();
         int sum = 0;
 
@@ -40,8 +40,5 @@ public class PlanBuilder {
         }
 
         return plan;
-
     }
-
-
 }
