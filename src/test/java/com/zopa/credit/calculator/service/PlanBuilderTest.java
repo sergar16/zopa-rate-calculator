@@ -23,7 +23,7 @@ import static org.hamcrest.MatcherAssert.assertThat;
 @ContextConfiguration(classes = PlanBuilder.class)
 @ActiveProfiles("test")
 @DisplayName("Building a plan testing")
-public class PlanBuilderTest {
+class PlanBuilderTest {
 
     @Autowired
     private PlanBuilder planBuilder;

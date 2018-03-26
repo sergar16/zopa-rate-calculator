@@ -12,8 +12,8 @@ import static java.math.BigDecimal.valueOf;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 @ExtendWith(SpringExtension.class)
-@ContextConfiguration(classes = {
-        PropertiesConfig.class, CommandLineResultRenderer.class})
+@ContextConfiguration(classes = {PropertiesConfig.class,
+        CommandLineResultRenderer.class})
 @ActiveProfiles("test")
 class CommandLineResultRendererTest {
 
@@ -34,13 +34,13 @@ class CommandLineResultRendererTest {
         String renderResult = commandLineResultRenderer.render(calculationResult);
 
         //expected
-        String expected ="Requested amount : £100\n" +
+        String expected = "Requested amount : £100\n" +
                 "Rate: 0.80%\n" +
                 "Monthly repayment: £1300.91\n" +
                 "Total repayment: £49.90";
 
         //then
-        assertEquals(renderResult,expected );
+        assertEquals(renderResult, expected);
     }
 
     @Test
@@ -61,8 +61,6 @@ class CommandLineResultRendererTest {
         //
         //        //then
         //        assertThrows(InvalidInputException.class, validateInputNotDigit);
-
-
     }
 
     @Test

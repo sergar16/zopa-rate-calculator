@@ -39,6 +39,6 @@ class LenderMapperTest {
     }
 
     @Test
-     void test_mapList() {
+    void test_mapList() {
     }
 }

@@ -19,7 +19,7 @@ import static java.math.BigDecimal.valueOf;
         MathConfiguration.class,
         PropertiesConfig.class})
 @ActiveProfiles("test")
-public class FixedPricePercentageRatePaymentCalculatorTest {
+class FixedPricePercentageRatePaymentCalculatorTest {
 
     @Autowired
     private FixedPricePercentageRatePaymentCalculator fixedPricePercentageRatePaymentCalculator;

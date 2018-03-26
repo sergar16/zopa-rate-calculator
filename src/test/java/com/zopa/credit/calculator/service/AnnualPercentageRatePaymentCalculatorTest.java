@@ -18,13 +18,13 @@ import static java.math.BigDecimal.valueOf;
 @ContextConfiguration(classes = {AnnualPercentageRatePaymentCalculator.class,
         MathConfiguration.class, PropertiesTestConfig.class})
 @ActiveProfiles("test")
-public class AnnualPercentageRatePaymentCalculatorTest {
+class AnnualPercentageRatePaymentCalculatorTest {
 
     @Autowired
     private AnnualPercentageRatePaymentCalculator paymentCalculator;
 
     @Test
-    public void test_FRED_DATA_credit_payment_calculator() {
+    void test_FRED_DATA_credit_payment_calculator() {
         //given
         BigDecimal totalAmount = valueOf(520);
         BigDecimal rate = valueOf(0.071);
@@ -34,12 +34,12 @@ public class AnnualPercentageRatePaymentCalculatorTest {
         BigDecimal result = paymentCalculator.calculateCreditPayment(totalAmount, rate, monthCount);
 
         //then
-        TestUtil.compareBigDecimalRounded(result,"576.92");
+        TestUtil.compareBigDecimalRounded(result, "576.92");
     }
 
 
     @Test
-    public void test_JANE_DATA_credit_payment_calculator() {
+    void test_JANE_DATA_credit_payment_calculator() {
         //given
         BigDecimal totalAmount = valueOf(480);
         BigDecimal rate = valueOf(0.069);
@@ -49,7 +49,7 @@ public class AnnualPercentageRatePaymentCalculatorTest {
         BigDecimal result = paymentCalculator.calculateCreditPayment(totalAmount, rate, monthCount);
 
         //then
-        TestUtil.compareBigDecimalRounded(result,"531.06");
+        TestUtil.compareBigDecimalRounded(result, "531.06");
     }
 
 }

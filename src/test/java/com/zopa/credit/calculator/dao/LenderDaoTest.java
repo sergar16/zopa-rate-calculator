@@ -17,14 +17,14 @@ import static org.junit.jupiter.api.Assertions.assertThrows;
 
 @ExtendWith(SpringExtension.class)
 @ActiveProfiles("test")
- class LenderDaoTest {
+class LenderDaoTest {
 
-    private LenderDao lenderDao=new LenderDao();
+    private LenderDao lenderDao = new LenderDao();
 
     private ClassLoader classLoader = getClass().getClassLoader();
 
     @Test
-     void whenValidFileShouldLoad() {
+    void whenValidFileShouldLoad() {
 
         //given
         String pathValidFile = classLoader.getResource("valid.csv").getFile();
@@ -43,7 +43,7 @@ import static org.junit.jupiter.api.Assertions.assertThrows;
     }
 
     @Test
-     void whenInvalidFileShouldThrowException() {
+    void whenInvalidFileShouldThrowException() {
         //given
         String pathInvalidFile = classLoader.getResource("invalid.csv").getFile();
 
@@ -55,7 +55,7 @@ import static org.junit.jupiter.api.Assertions.assertThrows;
     }
 
     @Test
-     void whenInvalidFilePathShouldThrowException() {
+    void whenInvalidFilePathShouldThrowException() {
         //given
         String invalidPath = "invalid/resources/valid.csv";
 
